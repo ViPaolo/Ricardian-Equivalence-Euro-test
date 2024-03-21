@@ -33,8 +33,8 @@ cap cmdlog close
 cap log close
 
 *We set our working folder, i.e., the folder that Stata will automatically use for the project when we do not specify the file path to use:
-
-cd "I:\Econometria\Progetto-Vivera"
+*Change in a normal working Directory
+cd "Working_Directory"
 
 *From here, we set log and cmdlog
 cap cmdlog using CMDlog-econometria, replace
@@ -45,7 +45,7 @@ cap log using log-econometria, replace
 
 //Database 1 - Private debt. -------------------------------------------------
 *We import the csv data into STATA
-import delimited "I:\Econometria\Progetto-Vivera\Dati\csv2\Household debt, consolidated, 1995-2022- %GDP1.csv"
+import delimited "Working_Directory\Dati\csv2\Household debt, consolidated, 1995-2022- %GDP1.csv"
 *There are several variables that are not useful for our analysis, so we remove them.
 keep geo time_period obs_value
 
@@ -60,12 +60,12 @@ drop if country=="EA19" | country=="EA20"
 drop if year <2000 | year >2021
 
 *We save our dataset, updating it from time to time with the new variables.
-save "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta", replace
+save "Working_Directory\Database progetto econometria.dta", replace
 
 //Dataset 2 - Public debt - ------------------------------------------------
 
 *We import the csv data into STATA
-import delimited "I:\Econometria\Progetto-Vivera\Dati\csv2\General government gross debt, million euro -2000-2020.csv", clear
+import delimited "Working_Directory\Dati\csv2\General government gross debt, million euro -2000-2020.csv", clear
 
 *There are several variables that are not useful for our analysis, so we remove them again.
 keep geo time_period obs_value
@@ -81,18 +81,18 @@ drop if country=="EA19" | country=="EA20"
 drop if year <2000 | year >2021
 
 *With merge, we combine the two datasets by combining our reference variables, taking the year and state as reference variables.
-merge m:m country year using "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta"
+merge m:m country year using "Working_Directory\Database progetto econometria.dta"
 
 *The merge variable gives us information on the result of the merging process, we remove it once the process has gone well, in order to proceed with the other merges.
 drop _merge
 
 *We save the new dataset formed.
-save "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta", replace
+save "Working_Directory\Database progetto econometria.dta", replace
 
 //Dataset 3 - Inflation -------------------------------------------------------
 
 *We import the csv data into STATA
-import delimited "I:\Econometria\Progetto-Vivera\Dati\csv2\Inflation, HICP all average rate of change, 1994-2000.csv", clear
+import delimited "Working_Directory\Dati\csv2\Inflation, HICP all average rate of change, 1994-2000.csv", clear
 
 *There are several variables that are not useful for our analysis, so we remove them again.
 keep geo time_period obs_value
@@ -108,18 +108,18 @@ drop if country=="EA19" | country=="EA20"
 drop if year <2000 | year >2021
 
 *With merge, we combine the two datasets by combining our reference variables, taking the year and state as reference variables.
-merge m:m country year using "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta"
+merge m:m country year using "Working_Directory\Database progetto econometria.dta"
 
 *The merge variable gives us information on the result of the merging process, we remove it once the process has gone well, in order to proceed with the other merges.
 drop _merge
 
 *We save the new dataset formed.
-save "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta", replace
+save "Working_Directory\Database progetto econometria.dta", replace
 
 //dataset 4 - Net disposable income
 
 *We import the csv data into STATA
-import delimited "I:\Econometria\Progetto-Vivera\Dati\csv2\Net Disposable income, 1995-2022, current prices million euros.csv", clear
+import delimited "Working_Directory\Dati\csv2\Net Disposable income, 1995-2022, current prices million euros.csv", clear
 
 *There are several variables that are not useful for our analysis, so we remove them again.
 keep geo time_period obs_value
@@ -135,18 +135,18 @@ drop if country=="EA19" | country=="EA20"
 drop if year <2000 | year >2021
 
 *With merge, we combine the two datasets by combining our reference variables, taking the year and state as reference variables.
-merge m:m country year using "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta"
+merge m:m country year using "Working_Directory\Database progetto econometria.dta"
 
 *The merge variable gives us information on the result of the merging process, we remove it once the process has gone well, in order to proceed with the other merges.
 drop _merge
 
 *We save the new dataset formed.
-save "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta", replace
+save "Working_Directory\Database progetto econometria.dta", replace
 
 //Dataset 5 -GDP
 
 *We import the csv data into STATA
-import delimited "I:\Econometria\Progetto-Vivera\Dati\csv2\GDP, 1995-2022, current prices million euros.csv", clear
+import delimited "Working_Directory\Dati\csv2\GDP, 1995-2022, current prices million euros.csv", clear
 
 *There are several variables that are not useful for our analysis, so we remove them again.
 keep geo time_period obs_value
@@ -162,18 +162,18 @@ drop if country=="EA19" | country=="EA20"
 drop if year <2000 | year >2021
 
 *With merge, we combine the two datasets by combining our reference variables, taking the year and state as reference variables.
-merge m:m country year using "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta"
+merge m:m country year using "Working_Directory\Database progetto econometria.dta"
 
 *The merge variable gives us information on the result of the merging process, we remove it once the process has gone well, in order to proceed with the other merges.
 drop _merge
 
 *We save the new dataset formed.
-save "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta", replace
+save "Working_Directory\Database progetto econometria.dta", replace
 
 //dataset 6 - Working-age population.
 
 *We import the csv data into STATA
-import delimited "I:\Econometria\Progetto-Vivera\Dati\csv2\Population, 15-64, 1994-2022.csv", clear
+import delimited "Working_Directory\Dati\csv2\Population, 15-64, 1994-2022.csv", clear
 
 *There are several variables that are not useful for our analysis, so we remove them again.
 keep geo time_period obs_value
@@ -189,18 +189,18 @@ drop if country=="EA19" | country=="EA20"
 drop if year <2000 | year >2021
 
 *With merge, we combine the two datasets by combining our reference variables, taking the year and state as reference variables.
-merge m:m country year using "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta"
+merge m:m country year using "Working_Directory\Database progetto econometria.dta"
 
 *The merge variable gives us information on the result of the merging process, we remove it once the process has gone well, in order to proceed with the other merges.
 drop _merge
 
 *We save the new dataset formed.
-save "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta", replace
+save "Working_Directory\Database progetto econometria.dta", replace
 
 //Dataset 7 - interest rate *control variable for the confidence of a given country's system.
 
 *We import the csv data into STATA
-import delimited "I:\Econometria\Progetto-Vivera\Dati\csv2\12-month interest rates, 1995-2022.csv", clear
+import delimited "Working_Directory\Dati\csv2\12-month interest rates, 1995-2022.csv", clear
 
 *There are several variables that are not useful for our analysis, so we remove them again.
 keep time_period obs_value
@@ -215,18 +215,18 @@ label variable interest_rate "The interest rate in the money market, with a dura
 drop if year <2000 | year >2021
 
 *With merge, we combine the two datasets by combining our reference variables, taking the year and state as reference variables.
-merge m:m year using "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta"
+merge m:m year using "Working_Directory\Database progetto econometria.dta"
 
 *The merge variable gives us information on the result of the merging process, we remove it once the process has gone well, in order to proceed with the other merges.
 drop _merge
 
 *We save the new dataset formed.
-save "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta", replace
+save "Working_Directory\Database progetto econometria.dta", replace
 
 //Dataset 8 - tax revenues
 
 *We import the csv data into STATA
-import delimited "I:\Econometria\Progetto-Vivera\Dati\csv2\Taxes on imports and production less subsidies, million euros, 1994-2022.csv", clear
+import delimited "Working_Directory\Dati\csv2\Taxes on imports and production less subsidies, million euros, 1994-2022.csv", clear
 
 *There are several variables that are not useful for our analysis, so we remove them again.
 keep geo time_period obs_value
@@ -242,18 +242,18 @@ drop if country=="EA19" | country=="EA20"
 drop if year <2000 | year >2021
 
 *With merge, we combine the two datasets by combining our reference variables, taking the year and state as reference variables.
-merge m:m country year using "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta"
+merge m:m country year using "Working_Directory\Database progetto econometria.dta"
 
 *The merge variable gives us information on the result of the merging process, we remove it once the process has gone well, in order to proceed with the other merges.
 drop _merge
 
 *We save the new dataset formed.
-save "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta", replace
+save "Working_Directory\Database progetto econometria.dta", replace
 
 //Dataset 9 - Population over 65 years old *to control if the aging of the population has an effect on saved savings,
 
 *We import the csv data into STATA
-import delimited "I:\Econometria\Progetto-Vivera\Dati\csv2\Population, 65+,1994-2022.csv", clear
+import delimited "Working_Directory\Dati\csv2\Population, 65+,1994-2022.csv", clear
 
 *There are several variables that are not useful for our analysis, so we remove them again.
 keep geo time_period obs_value
@@ -270,13 +270,13 @@ drop if country=="EA19" | country=="EA20"
 drop if year <2000 | year >2021
 
 *With merge, we combine the two datasets by combining our reference variables, taking the year and state as reference variables.
-merge m:m country year using "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta"
+merge m:m country year using "Working_Directory\Database progetto econometria.dta"
 
 *The merge variable gives us information on the result of the merging process, we remove it once the process has gone well, in order to proceed with the other merges.
 drop _merge
 
 *We save the new dataset formed.
-save "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta", replace
+save "Working_Directory\Database progetto econometria.dta", replace
 
 **# Generation of variables and rearrangements.
 *Our data allows us to find the debt of households in absolute value, having GDP and household debt as a percentage of GDP and coming from the same source.
@@ -352,7 +352,7 @@ note disposable_income: "Starting from Eurostat statistics, the GDP aggregate th
 note inflation: "The average annual growth rate of inflation for the complete European HICP basket, compiled directly from Eurostat. The values are expressed as a percentage change. Source: https://ec.europa.eu/eurostat/databrowser/view/PRC_HICP_AIND__custom_7438580/default/table"
 
 *We save the dataset with the generated variables.
-save "I:\Econometria\Progetto-Vivera\Database progetto econometria.dta", replace
+save "Working_Directory\Database progetto econometria.dta", replace
 
 
 
@@ -525,7 +525,7 @@ ssc install shp2dta
 
 *we have already found a map of the European Union, with data divided by NUTS (Nomenclature of Territorial Units for Statistics) import this file and convert it into a STATA dataset.
 
-spshape2dta "I:\Econometrics\Project-Vivera\Data\Shapefile\NUTS_RG_20M_2021_3035.shp", replace
+spshape2dta "Working_Directory\Data\Shapefile\NUTS_RG_20M_2021_3035.shp", replace
 
 *this command allows us to convert the shapefile into dta format, compatible with STATA. Import the generated dataset and see its structure.
 use NUTS_RG_20M_2021_3035.dta, clear
@@ -565,7 +565,7 @@ sort _ID
 save NUTS_RG_20M_2021_3035.dta, replace
 
 *now we can merge:
-merge m:m country using "I:\Econometrics\Project-Vivera\Database econometrics project.dta"
+merge m:m country using "Working_Directory\Database econometrics project.dta"
 
 *the merge was successful, we can save the new dataset.
 drop _merge
@@ -577,7 +577,7 @@ order _ID _CX _CY, last
 *restore the old label
 label variable country "Euro Area Countries (19 States)"
 
-save "I:\Econometrics\Project-Vivera\Database econometrics project.dta", replace
+save "Working_Directory\Database econometrics project.dta", replace
 
 
 *at this point, we can use the spmap command to create a map of the states showing public debt visually for each state, using the delta_logpublic and delta_logpublic variables we created earlier (command placed as a comment for convenience in running the do-file):
@@ -602,12 +602,12 @@ spmap delta_loghousehold using NUTS_RG_coord2.dta, id(_ID) fcolor(Blues)  legtit
 spmap delta_logpublic using NUTS_RG_coord2.dta, id(_ID) fcolor(Reds)  legtitle("Public debt growth")   
 
 *after several legend modifications, here are the final graphs:
-graph use "I:\Econometria\Progetto-Vivera\Privatemap.gph"
-graph use "I:\Econometria\Progetto-Vivera\Publicmap.gph"
+graph use "Working_Directory\Privatemap.gph"
+graph use "Working_Directory\Publicmap.gph"
 
 *we can then export the graphs: 
-graph export "I:\Econometria\Progetto-Vivera\Publicmap.jpg", as(jpg) name("Publicmap") quality(90)
-graph export "I:\Econometria\Progetto-Vivera\Privatemap.jpg", as(jpg) name("Privatemap") quality(90)
+graph export "Working_Directory\Publicmap.jpg", as(jpg) name("Publicmap") quality(90)
+graph export "Working_Directory\Privatemap.jpg", as(jpg) name("Privatemap") quality(90)
 
 
 
