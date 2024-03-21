@@ -17,7 +17,7 @@ In addition to regression results, the repository also presents visualizations d
 
 - `Equivalence-eng.do`: Stata do-file containing the regression analysis and data processing steps.
 - `dati/`: Directory containing EUROSTAT data files.
-- `Regression#`: The text files of the linear regression results.
+- `Regression#`: The text files of the diverse linear regression results.
 
 ## License
 
